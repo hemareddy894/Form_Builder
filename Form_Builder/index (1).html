@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📝 Dynamic Form Builder</h1>
+        <div class="header-actions">
+            <button id="saveBtn" class="btn">💾 Save</button>
+            <button id="loadBtn" class="btn">📂 Load</button>
+            <button id="clearBtn" class="btn">🗑️ Clear</button>
+            <button id="exportJsonBtn" class="btn">📄 Export JSON</button>
+            <button id="exportHtmlBtn" class="btn">🌐 Export HTML</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="toolbox">
+            <h2>Form Elements</h2>
+            <div class="elements-list">
+                <div class="element-item" draggable="true" data-type="text">
+                    <span>📝</span> Text Input
+                </div>
+                <div class="element-item" draggable="true" data-type="email">
+                    <span>📧</span> Email Input
+                </div>
+                <div class="element-item" draggable="true" data-type="password">
+                    <span>🔒</span> Password Field
+                </div>
+                <div class="element-item" draggable="true" data-type="number">
+                    <span>🔢</span> Number Field
+                </div>
+                <div class="element-item" draggable="true" data-type="textarea">
+                    <span>📄</span> Textarea
+                </div>
+                <div class="element-item" draggable="true" data-type="radio">
+                    <span>🔘</span> Radio Buttons
+                </div>
+                <div class="element-item" draggable="true" data-type="checkbox">
+                    <span>☑️</span> Checkboxes
+                </div>
+                <div class="element-item" draggable="true" data-type="select">
+                    <span>📋</span> Dropdown
+                </div>
+                <div class="element-item" draggable="true" data-type="date">
+                    <span>📅</span> Date Picker
+                </div>
+                <div class="element-item" draggable="true" data-type="file">
+                    <span>📎</span> File Upload
+                </div>
+                <div class="element-item" draggable="true" data-type="submit">
+                    <span>✅</span> Submit Button
+                </div>
+            </div>
+        </aside>
+
+        <main class="preview-area">
+            <h2>Form Preview</h2>
+            <div id="formPreview" class="form-preview">
+                <p class="empty-message">Drag and drop elements here to build your form</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Field</h2>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Label:</label>
+                    <input type="text" id="editLabel" placeholder="Enter label">
+                </div>
+                <div class="form-group">
+                    <label>Placeholder:</label>
+                    <input type="text" id="editPlaceholder" placeholder="Enter placeholder">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="editRequired"> Required Field
+                    </label>
+                </div>
+                <div id="optionsContainer" class="form-group" style="display:none;">
+                    <label>Options (one per line):</label>
+                    <textarea id="editOptions" rows="4" placeholder="Option 1&#10;Option 2&#10;Option 3"></textarea>
+                </div>
+                <button id="saveEdit" class="btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+        Form submitted successfully! ✅
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
